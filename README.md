@@ -6,7 +6,7 @@ ground, places the heads head-to-head, packs the zones under your flow budget,
 routes the trenches around the house, and prints a dig plan with a parts list.
 
 **Try it: [irrigation.ryankm.com](https://irrigation.ryankm.com/)** — a browser,
-and a bucket if you want the numbers to mean anything. EXP-039 in
+and a bucket if you want the numbers to mean anything. Part of
 [the Lab](https://ryankm.com/lab).
 
 Vanilla JavaScript and SVG. No framework, no build step, no dependencies, no
@@ -138,7 +138,7 @@ changing by a foot.
 
 ## Colour
 
-Zones use a five-hue categorical palette, validated on the cream ground for the
+Zones use a five-hue categorical palette, validated on the paper ground for the
 lightness band, chroma floor, colour-vision-deficiency separation across *all*
 pairs, and contrast. One pair lands at ΔE 6.6 under deuteranopia — inside the
 band that is only legal with secondary encoding — so the encoding is not

@@ -3,26 +3,26 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Irrigation Lab — plan a sprinkler system for any yard | Ryan McCarty</title>
+    <title>Irrigation Lab, plan a sprinkler system for any yard · Ryan McCarty</title>
     <meta
       name="description"
-      content="Draw your yard, set your water pressure and flow, and get a sprinkler layout: head placement, spray coverage, zones inside the flow budget, trench runs and a parts list. Runs entirely in your browser. EXP-039 in the Lab at ryankm.com."
+      content="Draw your yard, set your water pressure and flow, and get a sprinkler layout: head placement, spray coverage, zones inside the flow budget, trench runs and a parts list. Runs entirely in your browser. Part of the Lab at ryankm.com."
     />
     <link rel="canonical" href="https://irrigation.ryankm.com/" />
     <meta name="author" content="Ryan McCarty" />
 
-    <!-- A sprinkler arc drawn on the site's cream, in the deep teal and vermillion. -->
+    <!-- A sprinkler arc drawn on the site's paper, in ink, with a marigold head. -->
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23fef6e9'/%3E%3Cpath d='M6 24 A14 14 0 0 1 26 24 Z' fill='none' stroke='%23003f48' stroke-width='2.2' stroke-linejoin='round'/%3E%3Ccircle cx='16' cy='24' r='3.2' fill='%23e73d00'/%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23faf9f5'/%3E%3Cpath d='M6 24 A14 14 0 0 1 26 24 Z' fill='none' stroke='%23141413' stroke-width='2.2' stroke-linejoin='round'/%3E%3Ccircle cx='16' cy='24' r='3.2' fill='%23f0b429'/%3E%3C/svg%3E"
     />
-    <meta name="theme-color" content="#fef6e9" />
-    <link rel="preload" as="font" type="font/woff2" href="/fonts/figtree-normal.woff2" crossorigin />
+    <meta name="theme-color" content="#faf9f5" />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/hanken-grotesk.woff2" crossorigin />
     <link rel="stylesheet" href="/styles.css" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Ryan McCarty" />
-    <meta property="og:title" content="Irrigation Lab — plan a sprinkler system for any yard" />
+    <meta property="og:title" content="Irrigation Lab, plan a sprinkler system for any yard" />
     <meta
       property="og:description"
       content="Draw your yard, enter what your spigot actually delivers, and the tool places the heads, packs the zones under your flow budget and routes the trenches. Nothing leaves your browser."
@@ -41,7 +41,6 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Irrigation Lab",
-        "alternateName": "EXP-039",
         "url": "https://irrigation.ryankm.com/",
         "applicationCategory": "DesignApplication",
         "operatingSystem": "Any modern browser",
@@ -55,33 +54,33 @@
   <body>
     <div class="site-bar">
       <div class="container bar-inner">
-        <a class="wordmark" href="https://ryankm.com">Ryan McCarty<span class="dot">.</span></a>
+        <a class="wordmark" href="https://ryankm.com" aria-label="Ryan McCarty, ryankm.com">Ryan McCarty</a>
         <a class="bar-back" href="https://ryankm.com/lab">Back to the Lab<span aria-hidden="true">↗</span></a>
       </div>
     </div>
 
     <main id="app">
       <!-- ------------------------------------------------------ START --- -->
-      <!-- The same shape as EXP-038 (attention-lab): record voice, the name in
-           display type, the lede, then the experiment in a panel, then bench
-           notes and the trail back. -->
+      <!-- The same shape as attention-lab, which is the shape of a /lab/<slug>
+           page on the site: the title, the lede, the record as a facts table
+           (beside the title from a laptop up, under the tool below that), the
+           experiment on its plate, then notes and the trail back. The
+           experiment number stays in the site's data and off the page. -->
       <section class="screen screen-start" id="screen-start">
         <header class="app-header">
           <div class="container exp-head">
-            <div class="exp-meta">
-              <span class="label label-strong">EXP-039</span>
-              <span class="label">tool</span>
-              <span class="label label-strong exp-state"><span class="status-dot" aria-hidden="true"></span>Live</span>
-              <span class="exp-rule" aria-hidden="true"></span>
-              <span class="label exp-stack">Vanilla JS · SVG · Client-side only</span>
-            </div>
-            <h1 class="t-h1">Irrigation Lab<span class="dot">.</span></h1>
+            <h1 class="t-h1">Irrigation Lab</h1>
             <p class="t-lede">
               A sprinkler plan for your yard, not mine. Draw the lot, say what
               your spigot actually delivers, and get the heads, the nozzles,
-              the zones, the trenches and a dig plan you can take to the store
-              — all in your browser, with nothing sent anywhere.
+              the zones, the trenches and a dig plan you can take to the store,
+              all in your browser, with nothing sent anywhere.
             </p>
+            <dl class="facts facts-end exp-facts exp-facts-head">
+              <div><dt>Kind</dt><dd>App</dd></div>
+              <div><dt>Status</dt><dd><span class="exp-state"><span class="status-dot" aria-hidden="true"></span>Live</span></dd></div>
+              <div><dt>Made with</dt><dd>SVG · A five-stage solver · Client-side only</dd></div>
+            </dl>
           </div>
         </header>
 
@@ -96,7 +95,7 @@
 
             <div class="panel-card setup-panel">
               <div class="setup-copy">
-                <p class="eyebrow">Example · Blank lot · Your own image</p>
+                <p class="label">Example · Blank lot · Your own image</p>
                 <h2 class="t-display">Start with a yard.</h2>
                 <p class="panel-lede">
                   Open the example to see what the auto-layout does before you
@@ -117,7 +116,7 @@
                     <span class="start-title">Open the example yard</span>
                     <span class="start-body">
                       An invented 70 × 120 ft lot with a house, a drive, beds, a
-                      patio and a shed. Nothing real is modelled.
+                      patio and a shed. Nothing real is modeled.
                     </span>
                   </div>
                   <button class="btn btn-primary" id="start-sample">Open the example</button>
@@ -141,7 +140,7 @@
                         <span>Units</span>
                         <select id="lot-units">
                           <option value="us">feet</option>
-                          <option value="metric">metres</option>
+                          <option value="metric">meters</option>
                         </select>
                       </label>
                     </div>
@@ -170,38 +169,43 @@
 
         <footer class="app-footer">
           <div class="container">
-            <h2 class="t-display notes-title">Bench notes</h2>
-            <dl class="notes bench-notes">
+            <dl class="facts facts-end exp-facts exp-facts-foot">
+              <div><dt>Kind</dt><dd>App</dd></div>
+              <div><dt>Status</dt><dd><span class="exp-state"><span class="status-dot" aria-hidden="true"></span>Live</span></dd></div>
+              <div><dt>Made with</dt><dd>SVG · A five-stage solver · Client-side only</dd></div>
+            </dl>
+            <div class="shelf"><h2 class="eyebrow">Notes</h2></div>
+            <dl class="notes">
               <div class="note-row">
-                <dt class="label">Size the nozzle to the shape</dt>
+                <dt><span class="num" aria-hidden="true">01</span><span class="t-card">Size the nozzle to the shape</span></dt>
                 <dd>
                   The tool measures the largest circle that fits inside each piece
-                  of ground — the real "how wide is this" — rather than its area.
+                  of ground (the real "how wide is this") rather than its area.
                   A 2,000 sq ft lawn and a 2,000 sq ft side strip want completely
                   different heads, and area alone cannot tell them apart. Wide
                   open ground gets gear rotors, ordinary lawns get rotary nozzles,
                   narrow strips get fixed sprays. Then the throw is stepped down
-                  until at least three heads fit one zone's flow budget — on a
+                  until at least three heads fit one zone's flow budget: on a
                   small meter you run more, smaller heads per valve, not one big
                   rotor at a time.
                 </dd>
               </div>
               <div class="note-row">
-                <dt class="label">Ring the edge, fill the middle</dt>
+                <dt><span class="num" aria-hidden="true">02</span><span class="t-card">Ring the edge, fill the middle</span></dt>
                 <dd>
                   Heads go on the corners first, with the arc matched to the
                   interior angle and aimed down the bisector, then along the
                   edges as half circles facing in, then on a triangular lattice
                   wherever the perimeter ring cannot reach. Spacing is
                   head-to-head: every head throws far enough to hit its
-                  neighbour. That looks like absurd overlap on paper and it is
-                  the entire trick — a single head puts down most of its water
+                  neighbor. That looks like absurd overlap on paper and it is
+                  the entire trick: a single head puts down most of its water
                   close in, so anything less leaves dry rings you cannot fix by
                   turning the water up.
                 </dd>
               </div>
               <div class="note-row">
-                <dt class="label">Prune what earns nothing</dt>
+                <dt><span class="num" aria-hidden="true">03</span><span class="t-card">Prune what earns nothing</span></dt>
                 <dd>
                   The corner and edge passes double up, so a greedy pass tries
                   removing each head cheapest-first and keeps the removal only if
@@ -211,10 +215,10 @@
                 </dd>
               </div>
               <div class="note-row">
-                <dt class="label">Pack zones under the flow budget</dt>
+                <dt><span class="num" aria-hidden="true">04</span><span class="t-card">Pack zones under the flow budget</span></dt>
                 <dd>
                   Your spigot is the constraint that decides everything. Heads are
-                  walked in a nearest-neighbour chain from the water source and
+                  walked in a nearest-neighbor chain from the water source and
                   packed into zones at 85 % of measured flow, so a zone is a
                   contiguous <em>place</em> in the yard rather than a scattering,
                   and no valve is sized at 100 % of a bucket test. The supply
@@ -224,21 +228,21 @@
                 </dd>
               </div>
               <div class="note-row">
-                <dt class="label">Trench as a spanning tree</dt>
+                <dt><span class="num" aria-hidden="true">05</span><span class="t-card">Trench as a spanning tree</span></dt>
                 <dd>
                   Each zone gets a minimum spanning tree from its nearest source
                   out to every head, and every edge of it is a routed run:
                   straight where the line stays clear of every building, and
                   otherwise bent around the corners by the shortest path, so the
                   trench on the plan is a trench you can dig. Paving is a price
-                  rather than a wall — a walk can be sleeved.
+                  rather than a wall: a walk can be sleeved.
                 </dd>
               </div>
               <div class="note-row">
-                <dt class="label">What it is not</dt>
+                <dt><span class="num" aria-hidden="true">06</span><span class="t-card">What it is not</span></dt>
                 <dd>
-                  Not a hydraulic design. Nozzle flow and throw are catalogue
-                  approximations, friction loss in the pipe is not modelled, and
+                  Not a hydraulic design. Nozzle flow and throw are catalog
+                  approximations, friction loss in the pipe is not modeled, and
                   nothing here knows your local code, your backflow requirements
                   or where your utilities are buried. It is close enough to size
                   zones and argue with a parts list. It is not close enough to
@@ -246,7 +250,7 @@
                 </dd>
               </div>
               <div class="note-row">
-                <dt class="label">It stays on this machine</dt>
+                <dt><span class="num" aria-hidden="true">07</span><span class="t-card">It stays on this machine</span></dt>
                 <dd>
                   The plan is saved in this browser's own storage as you work and
                   can be exported as JSON. A traced image is read with the
@@ -257,8 +261,8 @@
               </div>
             </dl>
             <p class="footer-credit">
-              <a class="arrow-link" href="https://ryankm.com/lab">EXP-039 in the Lab at ryankm.com<span aria-hidden="true">→</span></a>
-              <a class="arrow-link" href="https://github.com/uxpreview/irrigation-lab">Source on GitHub<span aria-hidden="true">→</span></a>
+              <a class="btn btn-small" href="https://ryankm.com/lab">More in the Lab at ryankm.com<span aria-hidden="true">→</span></a>
+              <a class="btn btn-small" href="https://github.com/uxpreview/irrigation-lab">Source on GitHub<span aria-hidden="true">↗</span></a>
             </p>
           </div>
         </footer>
@@ -339,7 +343,7 @@
                 <label for="units">Units</label>
                 <select id="units">
                   <option value="us">Feet · gallons · inches</option>
-                  <option value="metric">Metres · litres · millimetres</option>
+                  <option value="metric">Meters · liters · millimeters</option>
                 </select>
               </div>
             </section>
@@ -393,7 +397,7 @@
                   <input type="range" id="h-arc" min="30" max="360" step="5" value="180" />
                 </div>
                 <div class="row">
-                  <label for="h-aim">Aim <output id="h-aim-out">0</output>° — or drag the handle on the plan</label>
+                  <label for="h-aim">Aim <output id="h-aim-out">0</output>°, or drag the handle on the plan</label>
                   <input type="range" id="h-aim" min="0" max="359" step="1" value="0" />
                 </div>
                 <div class="row">
@@ -475,7 +479,7 @@
         <h2 class="label">Set the scale</h2>
         <p class="small">
           Click two points on the image that you know the real distance between
-          — a driveway width, a house wall, the long side of the lot — then type
+          (a driveway width, a house wall, the long side of the lot), then type
           that distance.
         </p>
         <div class="scale-stage"><canvas id="scale-canvas"></canvas></div>

@@ -470,29 +470,29 @@ export function autoLayout(state, opts = {}) {
   const sprayed = dripBeds ? lawns : targets;
 
   if (!targets.length) {
-    return { heads: [], pipes: [], drip: [], notes: ['Nothing to water yet — draw a lawn or a bed first.'] };
+    return { heads: [], pipes: [], drip: [], notes: ['Nothing to water yet. Draw a lawn or a bed first.'] };
   }
   if (!state.sources.length) {
     return { heads: [], pipes: [], drip: [], notes: ['No water source. Add a hose bib before generating a layout.'] };
   }
 
-  notes.push(`Sizing every zone to ${budget.toFixed(1)} GPM — ${Math.round(FLOW_SAFETY * 100)} % of the ${state.supply.gpm} GPM supply, at ${psi} PSI.`);
+  notes.push(`Sizing every zone to ${budget.toFixed(1)} GPM, ${Math.round(FLOW_SAFETY * 100)} % of the ${state.supply.gpm} GPM supply, at ${psi} PSI.`);
 
   // --- heads, area by area ---
   const placed = [];
   for (const area of sprayed) {
     if (polyArea(area.pts) < 12) continue; // a strip this small is a watering can
     const noz = pickNozzle(area.pts, { prefer, blocks, psi, budget });
-    if (!noz.budgeted) notes.push(`${area.name}: even a ${noz.radius} ft ${HEAD_TYPES[noz.type].label.toLowerCase()} draws more than a third of a zone on this supply — expect small zones, or measure the flow again.`);
+    if (!noz.budgeted) notes.push(`${area.name}: even a ${noz.radius} ft ${HEAD_TYPES[noz.type].label.toLowerCase()} draws more than a third of a zone on this supply. Expect small zones, or measure the flow again.`);
     const raw = placeHeads(area.pts, noz, { blocks });
-    if (!raw.length) { notes.push(`${area.name}: too tight for a head at ${noz.radius} ft — left dry.`); continue; }
+    if (!raw.length) { notes.push(`${area.name}: too tight for a head at ${noz.radius} ft, left dry.`); continue; }
     const { heads: kept, removed, coverage: cov } = pruneHeads(area.pts, raw, { psi, blocks });
     for (const h of kept) { h.areaId = area.id; h.areaName = area.name; }
     placed.push(...kept);
     notes.push(
       `${area.name} (${Math.round(polyArea(area.pts)).toLocaleString()} sq ft, ${(noz.inradius * 2).toFixed(0)} ft across at the widest): ` +
       `${kept.length} x ${HEAD_TYPES[noz.type].label.toLowerCase()} at ${noz.radius} ft` +
-      `${removed ? `, ${removed} redundant head${removed > 1 ? 's' : ''} pruned` : ''} — ` +
+      `${removed ? `, ${removed} redundant head${removed > 1 ? 's' : ''} pruned` : ''}: ` +
       `${cov.pct.toFixed(0)} % covered, ${cov.pct2.toFixed(0)} % head-to-head.`
     );
   }
@@ -520,7 +520,7 @@ export function autoLayout(state, opts = {}) {
       }
     }
     const totalBed = withArea.reduce((s, b) => s + b.sqft, 0);
-    notes.push(`${beds.length} bed${beds.length > 1 ? 's' : ''} (${Math.round(totalBed).toLocaleString()} sq ft) on drip line, ${bedZones.length} zone${bedZones.length > 1 ? 's' : ''} — ${dripGpm(totalBed).toFixed(1)} GPM and about ${Math.round(dripTubingFt(totalBed))} ft of tubing. Drip needs its own filter and a 25 PSI regulator.`);
+    notes.push(`${beds.length} bed${beds.length > 1 ? 's' : ''} (${Math.round(totalBed).toLocaleString()} sq ft) on drip line, ${bedZones.length} zone${bedZones.length > 1 ? 's' : ''}: ${dripGpm(totalBed).toFixed(1)} GPM and about ${Math.round(dripTubingFt(totalBed))} ft of tubing. Drip needs its own filter and a 25 PSI regulator.`);
   }
 
   // --- trenches ---

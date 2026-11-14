@@ -39,12 +39,12 @@ export function zonePalette() {
   if (!palette) {
     palette = {
       zones: [1, 2, 3, 4, 5].map((i) => css(`--zone-${i}`, '#0b8fa8')),
-      neutral: css('--muted', '#5f6e73'),
-      ink: css('--ink', '#1d2b2e'),
-      accent: css('--accent', '#003f48'),
-      warm: css('--accent-warm-ink', '#bf3400'),
-      paper: css('--paper', '#fbf3e4'),
-      paperLine: css('--paper-line', '#cdbfa5'),
+      neutral: css('--muted', '#5e5d59'),
+      ink: css('--ink', '#141413'),
+      accent: css('--accent', '#141413'),
+      warm: css('--accent-warm-deep', '#a87200'),
+      paper: css('--paper', '#faf9f5'),
+      paperLine: css('--paper-line', '#c9c6ba'),
     };
   }
   return palette;
@@ -115,7 +115,7 @@ function renderGround(ctx) {
   const clip = ctx.svg?.querySelector('#clip-lot') ?? document.getElementById('clip-lot');
   if (clip) { clip.innerHTML = ''; el('polygon', { points: pointsAttr(state.site.lot) }, clip); }
   const pad = 400;
-  el('rect', { x: b.minX - pad, y: -(b.maxY + pad), width: (b.maxX - b.minX) + pad * 2, height: (b.maxY - b.minY) + pad * 2, fill: css('--bg', '#fef6e9') }, g);
+  el('rect', { x: b.minX - pad, y: -(b.maxY + pad), width: (b.maxX - b.minX) + pad * 2, height: (b.maxY - b.minY) + pad * 2, fill: css('--bg', '#faf9f5') }, g);
   el('polygon', { points: pointsAttr(state.site.lot), fill: p.paper, stroke: p.paperLine, 'stroke-width': px(1.5) }, g);
   // The lot line, drawn the way a plot plan draws one.
   el('polygon', {
@@ -247,7 +247,7 @@ function renderSources(ctx) {
       fill: zonePalette().accent, stroke: zonePalette().paper, 'stroke-width': px(sel ? 2.6 : 1.4),
     }, grp);
     el('circle', { cx: 0, cy: -r * 1.5, r: r * 0.32, fill: zonePalette().paper }, grp);
-    el('title', {}, grp).textContent = `${s.name} — drag to move; pipes snap to it`;
+    el('title', {}, grp).textContent = `${s.name}: drag to move; pipes snap to it`;
   }
 }
 

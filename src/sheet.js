@@ -101,16 +101,16 @@ export function partsList(state, sum) {
   const dripZones = sum.zones.filter((z) => z.drip.length && !z.heads.length).length;
   if (sum.zones.length) {
     parts.push({ n: sum.zones.length, item: 'Zone valve', note: 'in one or two manifold boxes near the source' });
-    parts.push({ n: 1, item: `Controller, at least ${sum.zones.length} station${sum.zones.length > 1 ? 's' : ''}`, note: 'buy the next size up — you will add a zone' });
+    parts.push({ n: 1, item: `Controller, at least ${sum.zones.length} station${sum.zones.length > 1 ? 's' : ''}`, note: 'buy the next size up: you will add a zone' });
   }
   if (state.sources.length) parts.push({ n: state.sources.length, item: 'Backflow preventer', note: 'one per source; check what your local code requires' });
   if (sum.totalPipe > 0) {
     parts.push({ n: `${roll(sum.totalPipe * 1.15).toLocaleString()} ft`, item: 'Lateral pipe (¾ in poly or the local equivalent)', note: '15 % over the drawn run for slack, depth and mistakes' });
-    parts.push({ n: Math.ceil(state.heads.length * 1.4) + 10, item: 'Barbed fittings and clamps', note: 'tees, elbows, couplers — buy more than the count' });
+    parts.push({ n: Math.ceil(state.heads.length * 1.4) + 10, item: 'Barbed fittings and clamps', note: 'tees, elbows, couplers; buy more than the count' });
   }
   if (dripZones) {
     parts.push({ n: `${roll(sum.dripTubingFt * 1.15, 50).toLocaleString()} ft`, item: 'Emitter tubing for the beds', note: '0.6 GPH emitters at 12 in, rows 18 in apart' });
-    parts.push({ n: dripZones, item: 'Drip filter and 25 PSI regulator', note: 'one set per drip zone — drip will not survive mains pressure' });
+    parts.push({ n: dripZones, item: 'Drip filter and 25 PSI regulator', note: 'one set per drip zone: drip will not survive mains pressure' });
   }
   if (sprayZones) parts.push({ n: sum.zones.length, item: 'Valve box', note: 'or one big box for a shared manifold' });
   parts.push({ n: 1, item: 'Rain sensor or a controller that reads the forecast', note: 'the cheapest thing on this list that saves the most water' });
@@ -132,7 +132,7 @@ export function renderSheet(state, mount) {
       <td><span class="swatch" style="background:${zoneColor(z.zone)}"></span>Zone ${z.zone}</td>
       <td>${esc(z.names.join(', ') || '—')}</td>
       <td>${z.heads.length ? `${z.heads.length} head${z.heads.length > 1 ? 's' : ''}` : `${z.drip.length} bed${z.drip.length > 1 ? 's' : ''}, drip`}</td>
-      <td${z.over ? ' class="over"' : ''}>${fmtFlow(z.gpm, u)}${z.over ? ' — over supply' : ''}</td>
+      <td${z.over ? ' class="over"' : ''}>${fmtFlow(z.gpm, u)}${z.over ? ', over supply' : ''}</td>
       <td>${fmtArea(z.areaSqFt, u)}</td>
       <td>${pr(z.pr)} ${prUnit}</td>
       <td>${mins(z.run?.perStartMin)}</td>
@@ -188,8 +188,8 @@ export function renderSheet(state, mount) {
       <p><strong>Call before you dig.</strong> In the US that is 811, free, a few
       working days ahead. Nothing in this plan knows where your gas, power,
       water or fibre is buried.</p>
-      <p>These flows and throws are catalogue approximations, and friction loss
-      along the pipe is not modelled — a long run to the far end of a zone will
+      <p>These flows and throws are catalog approximations, and friction loss
+      along the pipe is not modeled: a long run to the far end of a zone will
       arrive with less pressure than the slider says. Check the static pressure
       with a gauge on the spigot and the flow with a bucket before you buy
       anything. Backflow prevention, permits and what you may connect to the
