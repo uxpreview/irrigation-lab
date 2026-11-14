@@ -69,7 +69,7 @@ function save() {
   const ok = persist(state);
   $('save-note').textContent = ok
     ? 'Saved in this browser as you work. Nothing is sent anywhere.'
-    : 'Too large to save in this browser — most likely the reference image. Export the JSON to keep it.';
+    : 'Too large to save in this browser, most likely because of the reference image. Export the JSON to keep it.';
   $('save-note').classList.toggle('danger-text', !ok);
 }
 function pushHistory() {
@@ -325,7 +325,7 @@ function renderLegend() {
   const covRows = $('chk-coverage').checked ? `
     <div class="lrow"><span class="chip" style="background:#d6402a55"></span> not reached${focusZone ? ' by this zone' : ''}</div>
     <div class="lrow"><span class="chip" style="background:#7abe8455"></span> one head</div>
-    <div class="lrow"><span class="chip" style="background:#2c84a866"></span> two or more — the target</div>` : '';
+    <div class="lrow"><span class="chip" style="background:#2c84a866"></span> two or more, the target</div>` : '';
   const zoneRows = sum.zones.map((z) => `<div class="lrow"><span class="chip" style="background:${zoneColor(z.zone)}"></span> zone ${z.zone}${z.over ? ' ⚠' : ''}</div>`).join('');
   box.innerHTML = `${covRows ? `<h3>Coverage${focusZone ? ` · zone ${focusZone}` : ''}</h3>${covRows}` : ''}${zoneRows ? `<h3>Zones</h3>${zoneRows}` : ''}`;
 }
@@ -429,7 +429,7 @@ function finishDraft(commit) {
 
 function deleteSelected() {
   if (selectedSourceId) {
-    if (state.sources.length <= 1) { alert('Keep at least one water source — the trenches have to start somewhere.'); return; }
+    if (state.sources.length <= 1) { alert('Keep at least one water source. The trenches have to start somewhere.'); return; }
     pushHistory();
     state.sources = state.sources.filter((s) => s.id !== selectedSourceId);
     for (const p of state.pipes) for (const pt of p.pts) if (pt.sourceId === selectedSourceId) delete pt.sourceId;
@@ -766,7 +766,7 @@ $('start-image').onchange = (e) => {
     adopt(s, {
       notes: [
         'Trace the lawn and the beds over the image with the Area tool, then generate a layout.',
-        'Drag the water source to where your spigot actually is — every trench starts there.',
+        'Drag the water source to where your spigot actually is: every trench starts there.',
       ],
     });
   });
